@@ -32,19 +32,16 @@
         </div>
         <br>
         <div class="item">{{ items1 }}</div>
-        <div class="item">{{ items2   }}</div>
+        <div class="item">{{ items2 }}</div>
     </div>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
 import {Item} from "@/store";
 
 @Component({
-    components: {
-        HelloWorld,
-    },
+    components: {},
 })
 export default class App extends Vue {
 
