@@ -1,15 +1,15 @@
 <template>
     <div id="app">
-        <label>
+        <label class="mb10">
             <span>Value1: {{ value1 }}</span>
-            <select :value="value1">
+            <select v-model="value1">
                 <option v-for="i in items" :value="i.value">{{ i.label }}</option>
             </select>
         </label>
         <br>
         <label>
             <span>Value2: {{ value2 }}</span>
-            <select :value="value2">
+            <select v-model="value2">
                 <option v-for="i in items" :value="i.value">{{ i.label }}</option>
             </select>
         </label>
@@ -32,8 +32,16 @@ export default class App extends Vue {
         return this.$store.getters['value1'];
     }
 
+    set value1(v: string) {
+        this.$store.commit('set-value1', v);
+    }
+
     get value2(): string {
         return this.$store.getters['value2'];
+    }
+
+    set value2(v: string) {
+        this.$store.commit('set-value2', v);
     }
 
     get items(): Item[] {
@@ -50,10 +58,26 @@ export default class App extends Vue {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+
+    font-size: 3rem;
+}
+
+select {
+    font-size: 3rem;
+    width: 300px;
 }
 
 span {
     display: inline-block;
-    width: 180px;
+    width: 400px;
+    text-align: left;
+}
+
+label {
+    display: block;
+}
+
+.mb10 {
+    margin-bottom: 10px;
 }
 </style>
