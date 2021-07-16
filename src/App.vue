@@ -1,18 +1,38 @@
 <template>
     <div id="app">
-        <label class="mb10">
-            <span>Value1: {{ value1 }}</span>
-            <select v-model="value1">
-                <option v-for="i in items" :value="i.value">{{ i.label }}</option>
-            </select>
-        </label>
+        <div class="wrapper">
+            <label class="mb10">
+                <span>Value1: {{ value1 }}</span>
+                <select v-model="value1">
+                    <option v-for="i in items1" :value="i.value">{{ i.label }}</option>
+                </select>
+            </label>
+            <br>
+            <label>
+                <span>Value2: {{ value2 }}</span>
+                <select v-model="value2">
+                    <option v-for="i in items1" :value="i.value">{{ i.label }}</option>
+                </select>
+            </label>
+        </div>
+        <div class="wrapper">
+            <label class="mb10">
+                <span>Value1: {{ value1 }}</span>
+                <select v-model="value1">
+                    <option v-for="i in items2" :value="i.value">{{ i.label }}</option>
+                </select>
+            </label>
+            <br>
+            <label>
+                <span>Value2: {{ value2 }}</span>
+                <select v-model="value2">
+                    <option v-for="i in items2" :value="i.value">{{ i.label }}</option>
+                </select>
+            </label>
+        </div>
         <br>
-        <label>
-            <span>Value2: {{ value2 }}</span>
-            <select v-model="value2">
-                <option v-for="i in items" :value="i.value">{{ i.label }}</option>
-            </select>
-        </label>
+        <div class="item">{{ items1 }}</div>
+        <div class="item">{{ items2   }}</div>
     </div>
 </template>
 
@@ -44,8 +64,12 @@ export default class App extends Vue {
         this.$store.commit('set-value2', v);
     }
 
-    get items(): Item[] {
-        return this.$store.getters['items'];
+    get items1(): Item[] {
+        return this.$store.getters['items1'];
+    }
+
+    get items2(): Item[] {
+        return this.$store.getters['items2'];
     }
 }
 </script>
@@ -79,5 +103,16 @@ label {
 
 .mb10 {
     margin-bottom: 10px;
+}
+
+.wrapper {
+    border: 1px solid grey;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 1000px;
+}
+
+.item {
+    font-size: 1rem;
 }
 </style>

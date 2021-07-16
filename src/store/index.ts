@@ -9,20 +9,25 @@ export declare type Item = {
 }
 
 export declare type State = {
-    items: Item[],
+    items1: Item[],
+    items2: Item[],
     value1: string,
     value2: string
 }
 
 export default new Vuex.Store({
     state: {
-        items: [],
+        items1: [],
+        items2: [],
         value1: '',
         value2: '',
     } as State,
     mutations: {
-        'set-items'(state: State, items: Item[]) {
-            state.items = items;
+        'set-items1'(state: State, items: Item[]) {
+            state.items1 = items;
+        },
+        'set-items2'(state: State, items: Item[]) {
+            state.items2 = items;
         },
         'set-value1'(state: State, v: string) {
             state.value1 = v;
@@ -40,8 +45,11 @@ export default new Vuex.Store({
         value2(state: State): string {
             return state.value2;
         },
-        items(state: State): Item[] {
-            return state.items;
+        items1(state: State): Item[] {
+            return state.items1;
+        },
+        items2(state: State): Item[] {
+            return state.items2;
         }
     }
 })
